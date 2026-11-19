@@ -10,7 +10,8 @@ public class SecurityService {
   private final AtomicLong eventIds = new AtomicLong(0), incidentIds = new AtomicLong(0);
   private final List<SecurityEvent> events = new ArrayList<>();
   private final List<Incident> incidents = new ArrayList<>();
-  @Value("${sentinelops.detection.failed-login-threshold:5}") private int threshold;
+  @Value("${sentinelops.detection.failed-login-threshold:5}")
+  private int threshold = 5;
   public synchronized SecurityEvent record(EventRequest req) {
     if(req.username==null || req.sourceIp==null || req.eventType==null || req.outcome==null) throw new IllegalArgumentException("username, sourceIp, eventType and outcome are required");
     String severity = "failed".equalsIgnoreCase(req.outcome) ? "MEDIUM" : "LOW";
