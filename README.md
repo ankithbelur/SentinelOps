@@ -28,3 +28,6 @@ The demonstration rule creates a HIGH incident at the configured failed-login th
 
 ## CI Pipeline
 Builds and tests automatically through Jenkins when changes are pushed to the main branch.
+
+## SCM Polling
+Jenkins periodically polls the GitHub repository to detect new commits and trigger builds automatically.
