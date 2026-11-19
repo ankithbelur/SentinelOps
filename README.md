@@ -25,3 +25,6 @@ for i in 1 2 3 4 5; do curl -s -X POST http://localhost:8080/api/events -H 'Cont
 curl http://localhost:8080/api/incidents
 ```
 The demonstration rule creates a HIGH incident at the configured failed-login threshold. This is an educational simulation, not a production security detector.
+
+## CI Pipeline
+Builds and tests automatically through Jenkins when changes are pushed to the main branch.
