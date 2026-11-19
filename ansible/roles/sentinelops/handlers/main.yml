@@ -1,0 +1,3 @@
+- name: Restart SentinelOps (placeholder handler)
+  ansible.builtin.debug:
+    msg: "Artifact changed; in a full VM deployment restart the SentinelOps systemd service here."

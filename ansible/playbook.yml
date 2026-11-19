@@ -1,0 +1,8 @@
+- name: Configure SentinelOps host
+  hosts: app
+  become: false
+  vars:
+    app_port: 8080
+    app_jar: ../../target/sentinelops-1.0.0.jar
+  roles:
+    - sentinelops
