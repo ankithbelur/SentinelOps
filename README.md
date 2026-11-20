@@ -31,3 +31,9 @@ Builds and tests automatically through Jenkins when changes are pushed to the ma
 
 ## SCM Polling
 Jenkins periodically polls the GitHub repository to detect new commits and trigger builds automatically.
+
+## Git Branching and Integration
+
+Security event detection was developed using a dedicated feature branch.
+Feature branches allow changes to be developed independently and integrated
+into the main branch after development and testing.
