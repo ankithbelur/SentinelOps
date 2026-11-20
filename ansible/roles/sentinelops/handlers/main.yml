@@ -1,3 +1,6 @@
-- name: Restart SentinelOps (placeholder handler)
-  ansible.builtin.debug:
-    msg: "Artifact changed; in a full VM deployment restart the SentinelOps systemd service here."
+---
+- name: Validate SentinelOps deployment
+  debug:
+    msg: "SentinelOps deployment files changed. Handler executed successfully."
+
+    

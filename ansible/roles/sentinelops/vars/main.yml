@@ -1,0 +1,4 @@
+---
+app_name: SentinelOps
+app_directory: /tmp/sentinelops
+app_port: 8080

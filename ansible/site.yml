@@ -1,0 +1,7 @@
+---
+- name: Configure SentinelOps application server
+  hosts: app
+  become: false
+
+  roles:
+    - sentinelops

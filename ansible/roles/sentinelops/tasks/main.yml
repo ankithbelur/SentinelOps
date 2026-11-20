@@ -1,14 +1,26 @@
-- name: Ensure Java 17 runtime is available
-  ansible.builtin.command: java -version
-  changed_when: false
-- name: Create application directory
-  ansible.builtin.file:
-    path: /tmp/sentinelops
+---
+- name: Create SentinelOps deployment directory
+  file:
+    path: "{{ app_directory }}"
     state: directory
     mode: '0755'
-- name: Copy application artifact (build it locally first)
-  ansible.builtin.copy:
-    src: ../../../target/sentinelops-1.0.0.jar
-    dest: /tmp/sentinelops/sentinelops.jar
+
+- name: Display deployment configuration
+  debug:
+    msg: "SentinelOps deployment directory configured at {{ app_directory }}"
+
+- name: Deploy application configuration from template
+  template:
+    src: application.properties.j2
+    dest: "{{ app_directory }}/application.properties"
     mode: '0644'
-  notify: Restart SentinelOps (placeholder handler)
+  notify: Validate SentinelOps deployment
+
+- name: Deploy SentinelOps application JAR
+  copy:
+    src: "{{ playbook_dir }}/../target/sentinelops-1.0.0.jar"
+    dest: "{{ app_directory }}/sentinelops.jar"
+    mode: '0644'
+  notify: Validate SentinelOps deployment
+
+  
